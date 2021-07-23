@@ -1,0 +1,65 @@
+	public List<aUsuario> LerTodas()
+        {
+
+            List<aUsuario> pessoas = new List<aUsuario>();
+            string[] linhas = File.ReadAllLines(CAMINHO);
+
+            foreach (var item in linhas)
+            {
+                string[] linha = item.Split(";");
+
+                aUsuario pessoas = new aUsuario();
+                pessoas.Senha = linha[0];
+                pessoas.Nome = linha[1];
+                pessoas.Email = linha[2];
+
+
+                pessoas.Add(pessoas);
+
+            }
+        }
+
+
+
+
+	public void Create(aUsuario u)
+        {
+            string[] linha = { PrepararLinha(u) };
+            File.AppendAllLines(CAMINHO, linha);
+        }
+
+        private string PrepararLinha(aUsuario u)
+        {
+            return $"{u.Nome};{u.Email};{u.Senha};";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void Create(aUsuario u)
+        {
+            string[] linha = { PrepararLinha(u) };
+            File.AppendAllLines(CAMINHO, linha);
+        }
+
+        private string PrepararLinha(aUsuario u)
+        {
+            return $"{u.Nome};{u.Email};{u.Senha};";
+        }
